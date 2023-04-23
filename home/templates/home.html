@@ -1,0 +1,298 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!doctype html>
+
+<link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/38332/shovel-tool-clipart-md.png"
+      sizes="32x32" type="image/png">
+<link rel="icon" href="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/38332/shovel-tool-clipart-md.png"
+      sizes="16x16" type="image/png">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+<link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#712cf9">
+<title>Thompo Contracting</title>
+{% load static %}
+<style>
+  .hero-image {
+    background-image: url("{% static 'images/main_photo.jpg' %}");
+    height: 50vh; /* reduce height */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation-name: pan;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes pan {
+    from {
+      background-position: right;
+    }
+    to {
+      background-position: left;
+    }
+  }
+
+  .container {
+    max-width: 800px; /* limit width */
+  }
+
+  .hero-image img {
+    max-height: 300px; /* reduce height */
+    width: auto; /* maintain aspect ratio */
+    display: block;
+    margin: 0 auto;
+    margin-top: 100px; /* set a negative margin to move the hero section up */
+  }
+</style>
+
+{% load static %}
+
+ <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+        <span class="fs-4">Simple header</span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+      </ul>
+    </header>
+  </div>
+
+<div class="container fixed-top bg-white position:absolute">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img class="bi me-2" width="40" height="32"
+                 src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/38332/shovel-tool-clipart-md.png">
+            <span class="fs-4" style="color: #007bff;">Thompo Contracting</span>
+        </a>
+
+        <ul class="nav nav-pills ">
+            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#services" class="nav-link">Our services</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contact us</a></li>
+            <li class="nav-item"><a href="#FAQs" class="nav-link">FAQs</a></li>
+            <li class="nav-item"><a href="#FAQs" class="nav-link">About</a></li>
+        </ul>
+    </header>
+</div>
+
+<div class="container-fluid p-0">
+  <div class="hero-image d-flex align-items-center justify-content-center">
+    <div class="container py-5">
+      <h1 class="display-5 fw-bold text-body-emphasis text-center mb-3">Thompo Contracting</h1>
+      <h4 class="card-text text-center">Thompo Contracting offers a wide range of gardening services, including pressure washing, hedge trimming, and weekly maintenance. Our team is dedicated, reliable, and ready to help with all your gardening needs. As one satisfied customer put it, 'Ben and Toby are charming, reliable hard-working lads whom I am always delighted to have working in my garden."</h4>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <h2 id="services" class="pb-2 border-bottom text-black bg-white">Our services - We only charge £15 an hour
+        (£7.50 each)</h2>
+</div>
+
+
+<div class="pt-5 container">
+    <div class="row">
+        {% for job in jobs %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ job.image.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h3 class="card-title">{{ job.job }}</h3>
+                    <p class="card-text fs-5 ">{{ job.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="pb-2 my-5 mb-1 border-bottom text-black bg-white">Testimonials</h2>
+</div>
+
+<div class="pt-1 container">
+    {% for testimonial in testimonials %}
+    <div class="col">
+        <div class="container">
+            <p class="pb-2 my-4 mb-4 fs-4 text-black bg-white">{{ testimonial.name }} - {{ testimonial.description }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<div class="container">
+    <h2 class="pb-2 my-5 border-bottom text-black bg-white">Need a specific service? Submit a brief description and
+        we'll
+        promptly respond via email with availability.</h2>
+</div>
+<div id="contact" class="container col-xl-10 col-xxl-8 px-1 py-2">
+    <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-lg-7 text-center text-lg-start">
+            <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">How do I get in contact?</h1>
+            <p class="col-lg-10 fs-4">To get in contact, fill out the form on the right-hand side. You'll receive an
+                email from us within 12 hours to discuss the job and schedule a time that suits you. Our email address
+                is thompocontracting@gmail.com.</p>
+        </div>
+        <div class="col-md-10 mx-auto col-lg-5">
+            <form action="." method="POST" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+                {% csrf_token %}
+                <div class="form-floating mb-3">
+                    <input type="email" name="email" class="form-control" id="floatingInput"
+                           placeholder="name@example.com" required>
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea name="description" class="form-control" id="floatingPassword"
+                              placeholder="Password" required></textarea>
+                    <label for="floatingPassword">What do you need us to do?</label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+                <hr class="my-4">
+                <small class="text-body-secondary">We will be in contact soon!</small>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="b-example-divider"></div>
+
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+
+          <div class="accordion" id="accordionExample">
+                <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">FAQs</h1>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            How much does it cost?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            It's only £15 an hour for both me and me brother!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Why choose us?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Ultimately, it's up to you. You can take your time and hire one guy at £25 an hour to get
+                            your garden sorted in three months, or you can have two lads take care of it next week at
+                            half the price. The choice is yours!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            How to pay?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            We take money in cash as soon as the job is done.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            How experienced are you?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Don't let our age discourage you from experiencing our quality services at an affordable
+                            price. We may be young, but we're enthusiastic, strong, and capable, with almost three years
+                            of experience and not a single complaint, only compliments. You won't find anyone else
+                            offering such great value!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Who organises it?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            I work along-side my mum and brother to schedule the bookings through
+                            thompocontracting@gmail.com
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            How is it organised?
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+
+                            Simply submit your email and a brief description of what needs to be done. Within 12 hours,
+                            we'll get back to you with our availability. You can then choose a date, place, and time
+                            that works best for you, and we'll show up and get the job done. For larger projects, we may
+                            request to come by and assess the work first so we can provide an accurate estimate and
+                            determine what equipment we'll need. We will make the process as easy and as straightforward
+                            as possible.
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">About us</h1>
+        <p class="col-lg-10 fs-4">We started three years ago when a lady in the local village asked for our help
+                clearing the pathways around her garden.
+                Realizing that people needed affordable gardening services, we spread the word and quickly gained a
+                reputation as reliable and hard-working. Today, our goal remains the same: to provide quality services
+                to our local community.</p>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3 my-5">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="#services" class="nav-link px-2 text-body-secondary">Our services</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link px-2 text-body-secondary">Contact us</a></li>
+            <li class="nav-item"><a href="#FAQs" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+            <li class="nav-item"><a href="#FAQs" class="nav-link px-2 text-body-secondary">About</a></li>
+        </ul>
+        <p class="text-center text-body-secondary">&copy; 2023 Company, Inc</p>
+    </footer>
+</div>
